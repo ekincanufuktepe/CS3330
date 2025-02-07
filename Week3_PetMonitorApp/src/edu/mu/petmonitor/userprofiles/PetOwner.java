@@ -19,8 +19,10 @@ public class PetOwner {
 	 * This is a parameterized constructor, that will
 	 * allow you to create a PetOwner object with a 
 	 * name and lastname.
-	 * @param name This argument is the firstname of the pet owner
-	 * @param lastname This argument is the lastname of the pet owner
+	 * @param name 
+	 * 			This argument is the firstname of the pet owner
+	 * @param lastname 
+	 * 			This argument is the lastname of the pet owner
 	 */
 	public PetOwner(String name, String lastname) {
 		this.firstname = name;
@@ -60,6 +62,32 @@ public class PetOwner {
 		}
 		pets[numOfPets] = pet;
 		numOfPets++;
+		return true;
+	}
+	
+	/**
+	 * This method will remove a Pet from the PetOwner object.
+	 * 
+	 * @param index
+	 * 			This argument will hold the index of the pet to be
+	 * 			removed.
+	 * @return
+	 * 			Return false if there is an invalid index, or 
+	 * 			a pet does not exists. Returns true if the remove
+	 * 			was successful.
+	 */
+	public boolean removePetAt(int index) {
+		if(index < 0 || index > pets.length - 1) {
+			System.out.println("Invalid index!");
+			return false;
+		}
+		if(pets[index] == null) {
+			System.out.println("There is not pet at " + index + " to remove..");
+			return false;
+		}
+		System.out.println("Removing successful for: " + pets[index]);
+		pets[index] = null;
+		numOfPets--;
 		return true;
 	}
 
