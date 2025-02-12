@@ -7,7 +7,7 @@ public class PetOwner {
 	private String firstname;
 	private String lastname;
 	private Pet[] pets;
-	private int numOfPets = 0;
+	private static int numOfPets = 0;
 	
 	public PetOwner() {
 		this.pets = new Pet[3];
@@ -55,12 +55,26 @@ public class PetOwner {
 		this.pets = pets;
 	}
 	
+	public Pet getPetAt(int index) {
+		if(pets[index] != null) {
+			return new Pet(pets[index]);
+		}
+		return null;
+	}
+	
 	
 	public boolean adoptPet(Pet pet) {
 		if(numOfPets == getPets().length) {
+			System.out.println("Sorry you have reached your pet adoption limit!");
 			return false;
 		}
-		pets[numOfPets] = pet;
+		for(int i=0; i<getPets().length; i++) {
+			if(pets[i] == null) {
+				pets[i] = pet;
+				System.out.println("Congrats " + firstname + "! You have adopted " + pet.getName());
+				break;
+			}
+		}
 		numOfPets++;
 		return true;
 	}
@@ -96,12 +110,21 @@ public class PetOwner {
 		return "PetOwner [firstname=" + firstname + ", lastname=" + lastname + ", pets=" + Arrays.toString(pets) + "]";
 	}
 
-	public int getNumOfPets() {
+	public static int getNumOfPets() {
 		return numOfPets;
 	}
 
 	public void setNumOfPets(int numOfPets) {
 		this.numOfPets = numOfPets;
+	}
+	
+	public void listAdoptedPets() {
+		System.out.println(firstname + "'s pets:");
+		for(Pet pet : pets) {
+			if(pet != null) {
+				System.out.println(pet);
+			}
+		}
 	}
 
 }
