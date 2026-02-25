@@ -12,4 +12,9 @@ public class Robin extends Bird implements Flyable {
 		System.out.println("Robins can fly");
 	}
 
+	@Override
+	public String toString() {
+		return "Robin []";
+	}
+	
 }

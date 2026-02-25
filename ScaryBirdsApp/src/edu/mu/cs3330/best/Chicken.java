@@ -6,4 +6,11 @@ public class Chicken extends Bird {
 		super(name);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "Chicken []";
+	}
+	
+	
 }

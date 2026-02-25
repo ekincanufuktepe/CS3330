@@ -7,5 +7,9 @@ public abstract class Bird {
 	public Bird(String name) {
 		this.name = name;
 	}
+	
+	public void eat() {
+		System.out.println("Yum yum yum... says the " + this);
+	}
 
 }

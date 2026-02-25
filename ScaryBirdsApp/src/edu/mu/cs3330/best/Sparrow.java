@@ -11,4 +11,16 @@ public class Sparrow extends Bird implements Flyable {
 	public void fly() {
 		System.out.println("Sparrow cannot fly");
 	}
+	
+	@Override
+	public void eat() {
+		System.out.println("Munch munch much!!! says the " + this);
+	}
+
+	@Override
+	public String toString() {
+		return "Sparrow []";
+	}
+	
+	
 }

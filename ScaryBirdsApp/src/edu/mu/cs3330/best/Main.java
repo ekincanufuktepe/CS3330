@@ -23,6 +23,7 @@ public class Main {
 			if(b instanceof Flyable) {
 				((Flyable) b).fly();
 			}
+			b.eat();
 		}
 		
 		
