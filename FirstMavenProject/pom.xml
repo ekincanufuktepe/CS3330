@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.mu.cs3330</groupId>
+  <artifactId>FirstMavenProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.pitest</groupId>
+		    <artifactId>pitest</artifactId>
+		    <version>1.23.0</version>
+		    <dependencies>
+		    	<dependency>
+				    <groupId>org.junit.jupiter</groupId>
+				    <artifactId>junit-jupiter-api</artifactId>
+				    <version>6.0.3</version>
+				</dependency>
+			
+				<dependency>
+				    <groupId>org.junit.jupiter</groupId>
+				    <artifactId>junit-jupiter-params</artifactId>
+				    <version>6.0.3</version>
+				</dependency>
+				
+				<dependency>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+					<version>7.12.0</version>
+				</dependency>
+				
+				<!-- Source: https://mvnrepository.com/artifact/org.pitest/pitest-junit5-plugin -->
+				<dependency>
+				    <groupId>org.pitest</groupId>
+				    <artifactId>pitest-junit5-plugin</artifactId>
+				    <version>1.2.3</version>
+				</dependency>
+			</dependencies>
+			<configuration>
+		        <!-- no longer required -->
+		        <targetClasses>
+		            <param>edu.mu.cs3330.task.Task</param>
+		            <param>edu.mu.cs3330.task.TaskManager</param>
+		        </targetClasses>
+		        <!-- no longer required -->
+		        <targetTests>
+		            <param>edu.mu.cs3330.task.*</param>
+		        </targetTests>
+		        <threads>4</threads>
+		        <outputFormats>
+		        	<param>CSV</param>
+		        </outputFormats>
+		        
+		    </configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
+  <dependencies>
+	<dependency>
+	    <groupId>org.junit.jupiter</groupId>
+	    <artifactId>junit-jupiter-api</artifactId>
+	    <version>6.0.3</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params -->
+	<dependency>
+	    <groupId>org.junit.jupiter</groupId>
+	    <artifactId>junit-jupiter-params</artifactId>
+	    <version>6.0.3</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.pitest</groupId>
+	    <artifactId>pitest-junit5-plugin</artifactId>
+	    <version>1.2.3</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+		<version>7.12.0</version>
+		<scope>test</scope>
+	</dependency>
+	
+  </dependencies>
+  
+  
+</project>
