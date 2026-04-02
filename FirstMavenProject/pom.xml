@@ -4,11 +4,22 @@
   <artifactId>FirstMavenProject</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <!--> READ THIS FIRST!!! <-->
+  <!--> Right click on your Maven project then
+  		Run as -> Maven build ...
+  		Afterwards a Maven build window should open 
+  		In the "Goals" box paste the command below
+  		test-compile org.pitest:pitest-maven:mutationCoverage
+  		Then click "Apply" and then "Run".
+  		
+  		Once you do this you can re-run this build, it should be saved.
+  <-->
+  
   <build>
   	<plugins>
   		<plugin>
   			<groupId>org.pitest</groupId>
-		    <artifactId>pitest</artifactId>
+		    <artifactId>pitest-maven</artifactId>
 		    <version>1.23.0</version>
 		    <dependencies>
 		    	<dependency>
@@ -38,6 +49,9 @@
 			</dependencies>
 			<configuration>
 		        <!-- no longer required -->
+		        <excludedClasses>
+		        	<param>edu.mu.cs3330.Main</param>
+		        </excludedClasses>
 		        <targetClasses>
 		            <param>edu.mu.cs3330.task.Task</param>
 		            <param>edu.mu.cs3330.task.TaskManager</param>
@@ -48,6 +62,7 @@
 		        </targetTests>
 		        <threads>4</threads>
 		        <outputFormats>
+		        	<param>HTML</param>
 		        	<param>CSV</param>
 		        </outputFormats>
 		        
